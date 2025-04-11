@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+            
+
+
+
+
+    
+
+</head>
+<body>
+    
+       <div class ="container" >
+        <div id="sign up from">
+        <h2>Signup</h2>
+        <input type="text" id="signup-name" placeholder="Name" required>
+        <input type="email" id="signup-email" placeholder="Email" required>
+        <input type="password" id-="signup-password" placeholder="Password" required> 
+        <button onclick="signup()">signup</button>
+        <p>Already have an account ?<a href="#" onclick="showlogin()">Login</a></p>
+        <p id="signup-error" class="error"></p>
+       </div>
+
+       <div id="login-from" class="hidden">
+        <h2>Login</h2>
+        <input type="email" id="Login -email" placeholder="Email" required>
+        <input type="password" id="Login-password" placeholder="password" requried>
+            <button onclick="Login()">Login</button>
+            <p>Don't hacve a account? <a href="#" onclick="Showsignup()">Signup</a></p>
+            <p id="Login-error" class="error" ></p>
+         </div>
+
+
+         <div id="home-page" class="hidden">
+            <h2>Welcome to Movie Ticket Booking</h2>
+            <p id="user-welcome"></p>
+            <button onclick="Logout()">Logout</button>
+          </div>
+       </div>
+
+       <script>
+        function showSignup() {
+            document.getElementById('signup-from').classlist.remove('hidden');
+            document.getElementById('Login-from').classlist.add('hidden');
+            document.getElementById('home-page').classlist.add('hidden');
+
+        }
+        function showlogin() {
+            document.getElementById('signup-from').classlist.add('hidden');
+            document.getElementById('Login-from').classlist.remove('hidden');
+            document.getElementById('home-page').classlist.add('hidden');
+
+        }
+        function showHome(user) {
+            document.getElementById('signup-from').classlist.add('hidden');
+            document.getElementById('Login-from').classlist.add('hidden');
+            document.getElementById('home-page').classlist.remove('hidden');
+            document.getElementById('user-welcome').textContent = `welcome, ${user.name}!`;
+
+        }
+
+        function signup() {
+            const name = document.getElementById('signup-name').value;
+            const email = document.getElementById('signup-error').value;
+            const password = document.getElementById('signup-error').value;
+        
+            if (!name || !email || !password) {
+                document.getElementById('signup-error').textContent = 'All fields are required!';
+                return;
+            }
+         
+                const users = JSON.parse(localStorage.getItem('user')) ||[];
+                const existingUser = user.find(user => user.email === email);
+
+                if (existingUser) {
+                    document.getElementById('signup-error').textContent = 'email is already registered! ';
+                    return;
+                }
+               
+                user.push({ name, email, password});
+                localStorage.setItem('user', JSON.stringify(users));
+                alter('signup successful');
+                showlogin();
+        
+        
+        }
+        
+        function Login() {
+            const email = document.getElementById('Login-email').value;
+            const password = document.getElementById('Login-passsword').value;
+             
+
+            if (!email || !password) {
+                document.getElementById('Login-error').textContent = 'All fields are required!';
+                return;
+            }
+             const users = JSON.parse(localStorage.getItem('users')) || [];
+             const user = users.find(user => user.email === email && user.password === password);
+
+             if (user) {
+                showhome(users);
+             }else{sss
+                document.getElementById('Login-error').textContent= 'Invalid email or password';
+
+             }
+             }
+             function  Logout() {
+                showlogin();
+             }
+
+    </script>
+
+</body>
+</html>

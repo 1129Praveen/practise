@@ -1,0 +1,30 @@
+Last date : 11/4/2024
+File : should be sent in .pdf format
+Unit - 1:
+1. Salary calculator
+2. Celsius to fahrenheit and vice versa
+3. Kilometer to miles converter and miles to kilometres converter
+
+Unit - 2:-
+1. Student grading system.
+2. EB bill calculator
+3. Age prediction[Kid, Teenager, adult Kid, citizen, senior citizen].
+4. Fixed deposit with the help of age limit. Find Interest rate.
+
+Unit -3:-
+1. Patterns program[Learn on your own].
+2. Factorial using recursion and without recursion[2 methods]
+3. Prime number
+4. Armstrong number
+5. Reverse the number, reverse the string.
+6. Palindrome or not a palindrome [Number, string]
+7. 5 projects based on recursion.[Based on your own]
+8. Math methods-> area of shapes conversion.[min 5 shapes]
+9. Array [Maximum array, Minimum array].
+10. Duplicate values how many in number.[ 5,5,3,1,2 -eg]
+11. String methods - own projects
+12. Calendar methods
+13. Date & time methods
+14. Math Methods.
+15. String buffer and string builder methods
+16. Files and exception handling[Your own]

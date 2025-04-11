@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getMovieInfo(movieName) {
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function() {
+                if(xhttp.readyState === 4) {
+                    document.getElementById('minfo').style.display = "block";
+                    document.getElementById('loader').style.display = "none";
+                    console.log(xhttp.responseText);
+                    var movieResponse = JSON.parse(xhttp.responseText);
+                    var title = movieResponse.Title;
+                    var poster = movieResponse.Poster;
+
+                    document.getElementById('mimg').src = poster;
+                    document.getElementById('mtitle').innerHTML = title;
+                } else {
+                    document.getElementById('loader').style.display = "block";
+                    document.getElementById('minfo').style.display = "none";
+                }
+            }
+
+            xhttp.open("GET", `https://www.omdbapi.com/?t=${movieName}&apikey=c429066e`);
+            xhttp.send();
+
+            console.log('Test');
+
+        }
+    </script>
+</head>
+<body>
+    Movie Name: <input type="text" onblur="getMovieInfo(this.value)"> <br>
+
+    <div id="minfo" style="display: none;">
+        <h1>Movie Info</h1>
+        <img src="" alt="" id="mimg"> <br>
+        <p id="mtitle"></p>
+    </div>
+
+    <img src="loder.gif" id="loader" style="display: none;">
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Validation</title>
+    <script>
+       let generateOTP;
+
+        function generatedOTP() {
+
+            generateOTP = Math.floor(1000 + Math.radom()*  9000);
+             
+            document.getElementById("otp-dom").style.display = "block";
+            document.getElemntbyId("generated-otp").textcontent = Your;  $(generateOTP)
+        
+                
+
+        }
+        function submitOTP1() {
+            const userOTP = document.getElementById("otp-input").value;
+            const outputdiv = documnet.getElementId("output");
+
+            if(parseInt(userOTP, 10) === generateOTP){
+                outputdiv.textcontent = " OTP Verfied";
+                outputdiv.style.color = "green";
+            }
+            else{
+                outputdiv.textcontent = "invaid OTP.please try again.";
+                outputdiv.style.color="red"
+            }
+
+            }
+        
+
+        
+
+        
+       
+
+
+    </script>
+</head>
+<body>
+    <h1>OTP validation</h1>
+    <button onclick="generateOTP()">Generate OTP</button> <br><br>
+    <div style="display: none;"id="otp-dom">
+        <p id="generated-otp"></p>
+            Enter OTP:<input type="text" id="otp-input"placeholder="enter your OTP"> <br><br>
+            <button onclick="submitOTP()">submit</button>
+            
+
+    </div>
+    <div id="output" style="margin-top:20px;font-size:1.2sem;"></div>
+</body>
+</html>
