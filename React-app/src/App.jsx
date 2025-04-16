@@ -11,7 +11,6 @@ function App() {
     <>
     <h1>Product Management</h1>
     <p>here we are going to see react main basic build blocks</p>
-    <h5>welcome to react</h5>
   
     
     <AddProduct/>
